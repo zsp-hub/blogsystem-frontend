@@ -1,0 +1,20 @@
+<div class="box">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <p>{{message}}</p>
+      </div>
+
+      <!-- Login Form -->
+      <form>
+        <input type="text" class="fadeIn second" placeholder="login" [(ngModel)]="account" name="account">
+        <input type="text" class="fadeIn third" placeholder="password" [(ngModel)]="password" name="password">
+        <input type="submit" class="fadeIn fourth" value="Log In" (click)="login()">
+      </form>
+
+    </div>
+  </div>
+</div>
