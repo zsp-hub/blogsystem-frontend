@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ManageService} from "../services/manage.service";
+import {Router} from "@angular/router";
+import {log} from "util";
 
 @Component({
   selector: 'app-manage-sidebar',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageSidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private manageService: ManageService,
+              private router: Router) {
+  }
 
   ngOnInit() {
   }
 
+  logout() {
+    this.manageService.logout().subscribe((response: any) => {
+      if (response['code'] == 200) {
+        localStorage.removeItem("login");
+        this.router.navigate(['/']);
+      }
+    });
+  }
 }

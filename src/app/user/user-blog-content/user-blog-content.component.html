@@ -1,1 +1,13 @@
-<p>博客内容组件</p>
+<div>
+  <p>{{article.headline}}</p>
+  <p>{{article.lastEditDate|date:'yyyy-MM-dd'}}</p>
+  <p>{{article.readingQuantity}}</p>
+  <img src={{article.pictureAddress}}>
+  <p>{{article.synopsis}}</p>
+  <p>{{article.content}}</p>
+</div>
+<hr>
+<div>
+  <app-user-blog-comment [articleId]="articleId"></app-user-blog-comment>
+</div>
+

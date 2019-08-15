@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-user-blog-content',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserBlogContentComponent implements OnInit {
 
-  constructor() { }
+  private articleId: number;
+  private article:any;
+
+  constructor(private routerIonfo: ActivatedRoute,
+              private userService: UserService) {
+  }
 
   ngOnInit() {
+    this.articleId = this.routerIonfo.snapshot.params['articleId'];
+    this.getArticle();
   }
+
+  //获取文章内容
+  getArticle() {
+    this.userService.getArticle(this.articleId).subscribe((response: any) => {
+      this.article=response['data'];
+      console.log(this.article);
+    });
+  }
+
+
 
 }

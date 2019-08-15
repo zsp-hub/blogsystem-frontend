@@ -9,15 +9,18 @@ import {FormsModule} from "@angular/forms";
 import { UserBlogListComponent } from './user-blog-list/user-blog-list.component';
 import { UserComponent } from './user/user.component';
 import { UserBlogContentComponent } from './user-blog-content/user-blog-content.component';
+import {AppRoutingModule} from "../app-routing.module";
+import { UserBlogCommentComponent } from './user-blog-comment/user-blog-comment.component';
 
 
 
 
 @NgModule({
-  declarations: [UserHomeComponent, UserHeadComponent, UserLoginComponent, UserBlogListComponent, UserComponent, UserBlogContentComponent],
+  declarations: [UserHomeComponent, UserHeadComponent, UserLoginComponent, UserBlogListComponent, UserComponent, UserBlogContentComponent, UserBlogCommentComponent],
   imports: [
     CommonModule,
     HttpClientModule,
+    AppRoutingModule,
     FormsModule,
   ],
   exports: [UserComponent],
