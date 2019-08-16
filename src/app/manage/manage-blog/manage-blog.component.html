@@ -1,1 +1,32 @@
-<p>博客管理组件</p>
+<button class="btn btn-success" [routerLink]="['/manage/add-blog']" >新增文章</button>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">文章id</th>
+    <th scope="col">标题</th>
+    <th scope="col">阅读量</th>
+    <th scope="col">发布时间</th>
+    <th scope="col">操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let obj of list">
+    <th scope="row">{{obj.articleId}}</th>
+    <td>{{obj.headline}}</td>
+    <td>{{obj.readingQuantity}}</td>
+    <td>{{obj.lastEditDate|date:'yyyy-MM-dd'}}</td>
+    <td>
+      <button class="btn btn-warning">修改</button>
+      <button class="btn btn-danger">删除</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="pager">
+  <ul>
+    <li><a (click)="prev()">Prev</a></li>
+    <li *ngFor="let page of pageList"><a (click)="skip(page)">{{page}}</a></li>
+    <li><a (click)="next()">Next</a></li>
+  </ul>
+</div>

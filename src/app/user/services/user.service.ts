@@ -44,4 +44,10 @@ export class UserService {
       'content': content
     });
   }
+
+  //增加阅读量
+  putReadingQuantity(articleId:number){
+    let api: string = AppSettings.API_ENDPOINT + 'put/reading-quantity';
+    return this.http.post(api,{"articleId":articleId});
+  }
 }

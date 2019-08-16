@@ -1,26 +1,41 @@
-<main role="main" class="container">
+<div class="my-3 p-3 bg-white rounded box-shadow">
+  <!--<h6 class="border-bottom border-gray pb-2 mb-0">博客列表</h6>-->
 
-
-  <div class="my-3 p-3 bg-white rounded box-shadow">
-    <h6 class="border-bottom border-gray pb-2 mb-0">博客列表</h6>
-
-    <div class="media text-muted pt-3" *ngFor="let obj of list">
-      <a [routerLink]="['/user/blog-content',obj.articleId]">
-        <img src={{obj.pictureAddress}}>
-        <p><strong class="d-block text-gray-dark">{{obj.headline}}</strong></p>
-      </a>
-      <p>发布时间：{{obj.lastEditDate|date:'yyyy-MM-dd'}}</p>
-      <p>浏览量：{{obj.readingQuantity}}</p>
+  <!--<div class="media text-muted pt-3" *ngFor="let obj of list">-->
+  <!--<a [routerLink]="['/user/blog-content',obj.articleId]">-->
+  <!--<img src={{obj.pictureAddress}}>-->
+  <!--<p><strong class="d-block text-gray-dark">{{obj.headline}}</strong></p>-->
+  <!--</a>-->
+  <!--<p>发布时间：{{obj.lastEditDate|date:'yyyy-MM-dd'}}</p>-->
+  <!--<p>{{obj.readingQuantity}}</p>-->
+  <!--</div>-->
+  <!--<div *ngFor="let obj of list>-->
+<div class="label">
+  <div *ngFor="let obj of list">
+    <a [routerLink]="['/user/blog-content',obj.articleId]">
+      <img src={{obj.pictureAddress}} data-holder-rendered="true" >
+      <p>{{obj.headline}}</p>
+    </a>
+    <div>
+      <small class="text-muted">{{obj.lastEditDate|date:'yyyy-MM-dd'}}</small>
+      <small class="text-muted">{{obj.readingQuantity}}</small>
     </div>
-
-    <small class="d-block text-right mt-3">
-      <div class="pager">
-        <ul>
-          <li><a (click)="prev()">Prev</a></li>
-          <li *ngFor="let page of pageList"><a (click)="skip(page)">{{page}}</a></li>
-          <li><a (click)="next()">Next</a></li>
-        </ul>
-      </div>
-    </small>
   </div>
-</main>
+</div>
+
+  <div class="pager">
+    <ul>
+      <li><a (click)="prev()">Prev</a></li>
+      <li *ngFor="let page of pageList"><a (click)="skip(page)">{{page}}</a></li>
+      <li><a (click)="next()">Next</a></li>
+    </ul>
+  </div>
+
+</div>
+
+
+
+
+
+
+

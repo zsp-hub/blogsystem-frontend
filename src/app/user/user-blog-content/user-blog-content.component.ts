@@ -10,7 +10,7 @@ import {UserService} from "../services/user.service";
 export class UserBlogContentComponent implements OnInit {
 
   private articleId: number;
-  private article:any;
+  private article: any=[];
 
   constructor(private routerIonfo: ActivatedRoute,
               private userService: UserService) {
@@ -19,16 +19,20 @@ export class UserBlogContentComponent implements OnInit {
   ngOnInit() {
     this.articleId = this.routerIonfo.snapshot.params['articleId'];
     this.getArticle();
+    this.putReadingQuantity();
   }
 
   //获取文章内容
   getArticle() {
     this.userService.getArticle(this.articleId).subscribe((response: any) => {
-      this.article=response['data'];
+      this.article = response['data'];
       console.log(this.article);
     });
   }
 
-
+  //增加阅读量
+  putReadingQuantity() {
+    this.userService.putReadingQuantity(this.articleId).subscribe();
+  }
 
 }

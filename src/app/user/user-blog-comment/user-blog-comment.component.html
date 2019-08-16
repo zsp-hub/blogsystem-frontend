@@ -1,48 +1,26 @@
-<form class="form-horizontal">
-  <fieldset>
+<div class="jumbotron" style="background-color: rgb(215, 220, 225); color: rgb(0, 0, 0);">
 
-    <!-- Form Name -->
-    <legend>发表评论</legend>
+  <div class="jumbotron" style="background-color: rgb(192, 192, 192);">
+    <div class="form-group" style="">
+      <label>名称</label>
+      <input type="text" class="form-control" [(ngModel)]="visitorName" name="visitorName">
+      <label>邮箱</label>
+      <input type="text" class="form-control" [(ngModel)]="email" name="email">
+      <label>评论</label>
+      <textarea class="form-control" [(ngModel)]="content" name="content"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="postComment()">发表评论</button>
+  </div>
 
-    <!-- Prepended text-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="prependedtext"></label>
-      <div class="col-md-4">
-        <div class="input-group">
-          <span class="input-group-addon">名称</span>
-          <input id="prependedtext" name="prependedtext" class="form-control" placeholder="" type="text">
-        </div>
+  <hr>
 
-      </div>
+  <div class="jumbotron" style="background-color: rgb(192, 192, 192);">
+    <p>{{flog}}</p>
+    <div class="form-group" *ngFor="let obj of comment">
+      <label>{{obj.visitorName}}:</label>
+      <textarea class="form-control" readonly>{{obj.content}}</textarea>
     </div>
 
-    <!-- Prepended text-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="prependedtext"></label>
-      <div class="col-md-4">
-        <div class="input-group">
-          <span class="input-group-addon">邮箱</span>
-          <input id="prependedtext" name="prependedtext" class="form-control" placeholder="" type="text">
-        </div>
+  </div>
 
-      </div>
-    </div>
-
-    <!-- Textarea -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for=""></label>
-      <div class="col-md-4">
-        <textarea class="form-control" id="" name=""></textarea>
-      </div>
-    </div>
-
-    <!-- Button -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for=""></label>
-      <div class="col-md-4">
-        <button id="" name="" class="btn btn-primary">评论</button>
-      </div>
-    </div>
-
-  </fieldset>
-</form>
+</div>

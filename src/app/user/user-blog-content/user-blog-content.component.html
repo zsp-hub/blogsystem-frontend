@@ -1,13 +1,21 @@
-<div>
-  <p>{{article.headline}}</p>
-  <p>{{article.lastEditDate|date:'yyyy-MM-dd'}}</p>
-  <p>{{article.readingQuantity}}</p>
-  <img src={{article.pictureAddress}}>
-  <p>{{article.synopsis}}</p>
-  <p>{{article.content}}</p>
+<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark"
+     style="background-color: rgb(215, 220, 225); color: rgb(0, 0, 0);">
+  <div class="blog-post">
+    <h2 class="blog-post-title">{{article.headline}}</h2>
+    <p class="blog-post-meta">{{article.lastEditDate|date:'yyyy-MM-dd'}}<a>{{article.readingQuantity}}</a></p>
+
+    <p>{{article.synopsis}}</p>
+
+    <hr>
+
+    <p>{{article.content}}</p>
+
+  </div>
 </div>
-<hr>
-<div>
-  <app-user-blog-comment [articleId]="articleId"></app-user-blog-comment>
-</div>
+
+<app-user-blog-comment [articleId]="articleId"></app-user-blog-comment>
+
+
+
+
 

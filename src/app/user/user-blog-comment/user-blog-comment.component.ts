@@ -8,9 +8,16 @@ import {UserService} from "../services/user.service";
 })
 export class UserBlogCommentComponent implements OnInit {
   @Input() articleId: number;
-  private visitorName: string;
-  private email: string;
-  private content: string;
+
+  private comment:any=[];
+
+  private content: string = '';
+  private visitorName: string = '';
+  private email:string = '';
+
+  private flog:string='这篇博客还没有评论';
+
+
 
   constructor(private userService: UserService) { }
 
@@ -21,14 +28,26 @@ export class UserBlogCommentComponent implements OnInit {
   //获取评论
   getCommentList() {
     this.userService.getCommentList(this.articleId).subscribe((response: any) => {
-      console.log(response);
+     this.comment=response['data'];
+     if (this.comment['length'] != 0){
+       this.flog='';
+     }
     });
   }
+
 
   //添加评论
   postComment() {
     this.userService.postComment(this.articleId,this.visitorName,this.email,this.content).subscribe((response: any)=>{
-      console.log(response);
+      if(response['code']==200){
+        this.visitorName = '';
+        this.email = '';
+        this.content = '';
+        alert(response["message"]);
+        this.getCommentList();
+      }else {
+        this.email = '邮箱不正确';
+      }
     });
   }
 }
