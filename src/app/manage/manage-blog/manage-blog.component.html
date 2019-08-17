@@ -1,4 +1,4 @@
-<button class="btn btn-success" [routerLink]="['/manage/add-blog']" >新增文章</button>
+<button class="btn btn-success" [routerLink]="['/manage/add-blog']">新增文章</button>
 <table class="table">
   <thead>
   <tr>
@@ -16,8 +16,8 @@
     <td>{{obj.readingQuantity}}</td>
     <td>{{obj.lastEditDate|date:'yyyy-MM-dd'}}</td>
     <td>
-      <button class="btn btn-warning">修改</button>
-      <button class="btn btn-danger">删除</button>
+      <button class="btn btn-warning" (click)="put(obj.articleId)">修改</button>
+      <button class="btn btn-danger" (click)="deleteArticle(obj.articleId)">删除</button>
     </td>
   </tr>
   </tbody>

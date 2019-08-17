@@ -76,5 +76,10 @@ export class ManageService {
     return this.http.post(api, {'commentId': commentId}, {withCredentials: true});
   }
 
+  //添加图片
+  postPicture(file: any) {
+    let api: string = AppSettings.API_ENDPOINT + 'manage/upload/picture';
+    return this.http.post(api, file, {withCredentials: true});
+  }
 
 }

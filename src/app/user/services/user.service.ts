@@ -46,8 +46,8 @@ export class UserService {
   }
 
   //增加阅读量
-  putReadingQuantity(articleId:number){
+  putReadingQuantity(articleId: number) {
     let api: string = AppSettings.API_ENDPOINT + 'put/reading-quantity';
-    return this.http.post(api,{"articleId":articleId});
+    return this.http.post(api, {"articleId": articleId});
   }
 }

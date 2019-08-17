@@ -3,7 +3,7 @@
   <input type="text" class="form-control" [(ngModel)]="headline">
 </div>
 
-<input type="file" (change)="postPicture($event)">
+<p>封面图</p>
 <img src={{pictureAddress}}>
 
 <div class="form-group">
@@ -14,4 +14,6 @@
   <label>文章</label>
   <textarea class="form-control" [(ngModel)]="content"></textarea>
 </div>
-<button class="btn btn-success" (click)="postArticle()">新增文章</button>
+<button class="btn btn-success" (click)="putArticle()">修改文章</button>
+
+

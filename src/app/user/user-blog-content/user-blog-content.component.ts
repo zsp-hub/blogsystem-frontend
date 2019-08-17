@@ -10,7 +10,7 @@ import {UserService} from "../services/user.service";
 export class UserBlogContentComponent implements OnInit {
 
   private articleId: number;
-  private article: any=[];
+  private article: any = [];
 
   constructor(private routerIonfo: ActivatedRoute,
               private userService: UserService) {

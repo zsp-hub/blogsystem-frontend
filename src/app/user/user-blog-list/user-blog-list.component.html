@@ -10,18 +10,18 @@
   <!--<p>{{obj.readingQuantity}}</p>-->
   <!--</div>-->
   <!--<div *ngFor="let obj of list>-->
-<div class="label">
-  <div *ngFor="let obj of list">
-    <a [routerLink]="['/user/blog-content',obj.articleId]">
-      <img src={{obj.pictureAddress}} data-holder-rendered="true" >
-      <p>{{obj.headline}}</p>
-    </a>
-    <div>
-      <small class="text-muted">{{obj.lastEditDate|date:'yyyy-MM-dd'}}</small>
-      <small class="text-muted">{{obj.readingQuantity}}</small>
+  <div class="label">
+    <div *ngFor="let obj of list">
+      <a [routerLink]="['/user/blog-content',obj.articleId]">
+        <img src={{obj.pictureAddress}} data-holder-rendered="true">
+        <p>{{obj.headline}}</p>
+      </a>
+      <div>
+        <small class="text-muted">{{obj.lastEditDate|date:'yyyy-MM-dd'}}</small>
+        <small class="text-muted">{{obj.readingQuantity}}</small>
+      </div>
     </div>
   </div>
-</div>
 
   <div class="pager">
     <ul>

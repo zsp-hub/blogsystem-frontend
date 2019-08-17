@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ManageService} from "../services/manage.service";
 import {Router} from "@angular/router";
-import {log} from "util";
 
 @Component({
   selector: 'app-manage-sidebar',
@@ -20,7 +19,7 @@ export class ManageSidebarComponent implements OnInit {
   logout() {
     this.manageService.logout().subscribe((response: any) => {
       if (response['code'] == 200) {
-        localStorage.removeItem("login");
+        sessionStorage.clear();
         this.router.navigate(['/']);
       }
     });

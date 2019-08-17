@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,13 +8,13 @@ import {Router} from "@angular/router";
 })
 export class ManageComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
-    // let loginCode:string = localStorage.getItem("login");
-    // if(loginCode!="200"){
-    //   this.router.navigate(['/']);
-    // }
+    if (!sessionStorage.getItem('login')) {
+      this.router.navigate(['/']);
+    }
   }
 
 }

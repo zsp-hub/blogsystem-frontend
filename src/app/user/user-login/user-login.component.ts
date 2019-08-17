@@ -26,7 +26,8 @@ export class UserLoginComponent implements OnInit {
     this.user.login(this.account, this.password).subscribe((response: any) => {
       this.message = response['message'];
       if (response['code'] == 200) {
-        localStorage.setItem("login","200");
+        // localStorage.setItem("login","200");
+        sessionStorage.setItem("login", "200");
         this.goManage();
       }
     });
@@ -35,6 +36,6 @@ export class UserLoginComponent implements OnInit {
   goManage() {
     setTimeout(() => {
       this.router.navigate(['/manage']);
-    }, 1500);
+    }, 1000);
   }
 }
